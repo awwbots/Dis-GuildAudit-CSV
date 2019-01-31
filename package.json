@@ -4,7 +4,7 @@
   "description": "Discord Guild member audit with export to CSV",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [
     "Discord",
