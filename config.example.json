@@ -1,0 +1,6 @@
+{
+    "allowedRoles": ["owner", "admin"],
+    "commandName": "audit",
+    "commandPrefix": "!",
+    "discordToken": ""
+}

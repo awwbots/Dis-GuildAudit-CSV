@@ -1,0 +1,22 @@
+{
+  "name": "dis-guildaudit-csv",
+  "version": "1.0.0",
+  "description": "Discord Guild member audit with export to CSV",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Discord",
+    "guild",
+    "member",
+    "audit",
+    "CSV"
+  ],
+  "author": "andar",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "json2csv": "^4.3.3"
+  }
+}
