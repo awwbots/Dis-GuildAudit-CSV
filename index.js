@@ -21,7 +21,7 @@ function auditUsers(message) {
         }
         let memberRoles = []
         for (let r of m[1].roles.cache) {
-            if (r[1].name != "@everyone") memberRoles.push(r.name)
+            if (r[1].name != "@everyone") memberRoles.push(r[1].name)
         }
         member.Roles = memberRoles.join(', ')
         allMembers.push(member)
