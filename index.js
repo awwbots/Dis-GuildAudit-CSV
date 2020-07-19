@@ -8,20 +8,20 @@ const client = new discord.Client()
 
 const commandName = config.commandName
 
-const auditUsers = (message) => {
+function auditUsers(message) {
     console.log(message)
     let allMembers = []
-    for (let m of message.guild.members.values()){
-        if (m.user.bot == true) continue
+    for (let m of message.guild.members.cache) {
+        if (m[1].user.bot) continue
         let member = {
-            Name: m.user.username,
-            Tag: m.user.tag,
-            UserID: `<@${m.user.id}>`,
-            JoinDate: m.joinedAt.toDateString()
+            Name: m[1].user.username,
+            Tag: m[1].user.discriminator,
+            UserID: `<@${m[1].id}>`,
+            JoinDate: m[1].joinedAt.toDateString()
         }
         let memberRoles = []
-        for (let r of m.roles.values()){
-            if (r.name != "@everyone") memberRoles.push(r.name)
+        for (let r of m[1].roles.cache) {
+            if (r[1].name != "@everyone") memberRoles.push(r[1].name)
         }
         member.Roles = memberRoles.join(', ')
         allMembers.push(member)
@@ -50,13 +50,12 @@ client.on('message', async (message) => {
 
     if (message.content.indexOf(config.commandPrefix) !== 0) return //If message does not have command prefix.
     if (message.author.bot) return //Ignore commands sent by bot users.
-    else if (message.member.roles.some(role => config.allowedRoles.includes(role.name)) == false) return //Don't allow commands from unauthorized users.
+    else if (message.member.roles.cache.some(role => config.allowedRoles.includes(role.name)) == false) return //Don't allow commands from unauthorized users.
 
     if (command == `${commandName}`) auditUsers(message)
     else return //If the command is not used by this bot.
 
     consoleLog(`Allowed command ${command} from ${message.member.user.username} on the ${message.member.guild.name} server.`, "INFO")
-    message.delete(250)
 })
 
 client.login(config.discordToken)
