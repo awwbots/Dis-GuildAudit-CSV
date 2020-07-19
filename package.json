@@ -16,7 +16,7 @@
   "author": "andar",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.4.2",
-    "json2csv": "^4.3.3"
+    "discord.js": "^12.2.0",
+    "json2csv": "^4.5.4"
   }
 }
